@@ -1,0 +1,13 @@
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* responsive, max 4 par ligne */
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.movie-list__empty {
+    text-align: center;
+    color: #555;
+    font-size: 18px;
+    margin-top: 24px;
+}

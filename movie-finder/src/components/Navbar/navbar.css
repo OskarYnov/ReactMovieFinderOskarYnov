@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    background-color: #1a1a1a;
+    color: #fff;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+
+    position: sticky;
+    top: 0;
+}
+
+.navbar__link {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.navbar__link:hover {
+    color: #646cff;
+}
+
+.navbar__link.active {
+    color: #646cff;
+    border-bottom: 2px solid #646cff;
+}
