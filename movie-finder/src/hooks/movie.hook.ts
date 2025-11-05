@@ -1,23 +1,35 @@
 import { useState, useEffect } from "react";
-import {searchMovies} from "../proxy/search-movies.proxy.ts";
-import type {Movie} from "../types/movie.type.ts";
+import { searchMovies } from "../proxy/search-movies.proxy.ts";
+import type { Movie } from "../types/movie.type.ts";
 
-export const useFetchMovies = (query: string) => {
+interface SearchFilters {
+    query?: string;
+    year?: string;
+    genreId?: number;
+}
+
+export const useFetchMovies = (filters: SearchFilters) => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (!query) return;
-
         const fetchData = async () => {
+            if (!filters.query && !filters.genreId && !filters.year) {
+                setMovies([]);
+                return;
+            }
+
             setLoading(true);
-            const results = await searchMovies(query);
-            setMovies(results);
-            setLoading(false);
+            try {
+                const results = await searchMovies(filters);
+                setMovies(results);
+            } finally {
+                setLoading(false);
+            }
         };
 
         fetchData();
-    }, [query]);
+    }, [filters]);
 
     return { movies, loading };
 };

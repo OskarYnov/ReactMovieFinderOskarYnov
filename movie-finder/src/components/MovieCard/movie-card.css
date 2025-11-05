@@ -1,53 +1,88 @@
 .movie-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    position: relative;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 10px var(--card-shadow);
 }
 
 .movie-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .movie-card__image {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 400px; /* fixe la hauteur de l'image pour l'alignement */
+    object-fit: cover;
 }
 
 .movie-card__info {
-    padding: 8px;
-    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+    justify-content: space-between; /* répartit les éléments verticalement */
+    min-height: 150px; /* fixe un minimum pour que toutes les cartes soient égales */
 }
 
 .movie-card__title {
-    font-size: 14px;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin: 4px 0;
-    color: #333;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* limite à 2 lignes */
+    -webkit-box-orient: vertical;
 }
 
 .movie-card__year {
-    font-size: 12px;
-    color: #777;
+    font-size: 0.9rem;
+}
+
+.movie-card__stars {
+    display: flex;
+    gap: 2px;
 }
 
 .movie-card__no-image {
-    padding: 16px;
-    text-align: center;
-    min-height: 200px; /* pour garder une hauteur uniforme */
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
+    padding: 1rem;
+    min-height: 400px; /* même hauteur que l'image pour alignement */
+    text-align: center;
 }
 
 .movie-card__no-image-text {
-    font-size: 12px;
     font-style: italic;
-    color: #777;
-    margin-top: 8px;
+    color: #aaa;
+    margin-top: 0.5rem;
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-btn.active svg {
+    fill: #facc15;
+    color: #facc15;
 }
