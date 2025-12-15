@@ -50,6 +50,24 @@
 .navbar__username {
     font-weight: 600;
     color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: var(--hover-bg, rgba(102, 126, 234, 0.1));
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar__username:hover {
+    background-color: rgba(102, 126, 234, 0.2);
+    color: #667eea;
+}
+
+.navbar__username::before {
+    content: '👤';
+    font-size: 1.1rem;
 }
 
 .navbar__logout {

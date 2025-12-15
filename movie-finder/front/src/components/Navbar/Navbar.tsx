@@ -11,6 +11,7 @@ export default function Navbar() {
             <div className="navbar__links">
                 <NavLink to="/" className="navbar__link">Accueil</NavLink>
                 <NavLink to="/recherche" className="navbar__link">Rechercher</NavLink>
+                <NavLink to="/community" className="navbar__link">Communauté</NavLink>
                 {isAuthenticated && (
                     <>
                         <NavLink to="/favorites" className="navbar__link">Favoris</NavLink>
@@ -24,7 +25,9 @@ export default function Navbar() {
 
                 {isAuthenticated ? (
                     <div className="navbar__user">
-                        <span className="navbar__username">{user?.name}</span>
+                        <NavLink to={`/user/${user?.id}`} className="navbar__username" title="Voir mon profil">
+                            {user?.name}
+                        </NavLink>
                         <button onClick={logout} className="navbar__logout">
                             Déconnexion
                         </button>

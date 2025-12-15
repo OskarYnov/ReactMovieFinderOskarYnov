@@ -4,16 +4,17 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes.js';
 import favoritesRoutes from './routes/favorites.routes.js';
 import playlistsRoutes from './routes/playlists.routes.js';
+import usersRoutes from './routes/users.routes.js';
 
 // Charger les variables d'environnement
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173', // Vite dev server
+    origin: 'http://localhost:3000', // Vite dev server
     credentials: true
 }));
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/favorites', favoritesRoutes);
 app.use('/api/playlists', playlistsRoutes);
+app.use('/api/users', usersRoutes);
 
 // Route de base avec HATEOAS
 app.get('/api', (req, res) => {
@@ -55,6 +57,12 @@ app.get('/api', (req, res) => {
                 delete: { href: '/api/playlists/:id', method: 'DELETE', protected: true },
                 addMovie: { href: '/api/playlists/:id/movies', method: 'POST', protected: true },
                 removeMovie: { href: '/api/playlists/:id/movies/:movieId', method: 'DELETE', protected: true }
+            },
+            users: {
+                list: { href: '/api/users', method: 'GET', protected: false },
+                get: { href: '/api/users/:id', method: 'GET', protected: false },
+                favorites: { href: '/api/users/:id/favorites', method: 'GET', protected: false },
+                playlists: { href: '/api/users/:id/playlists', method: 'GET', protected: false }
             }
         }
     });

@@ -13,6 +13,8 @@ import PlaylistsPage from "./pages/Playlists/PlaylistsPage.tsx";
 import PlaylistDetailsPage from "./pages/Playlists/PlaylistDetailsPage.tsx";
 import Login from "./pages/Auth/Login.tsx";
 import Register from "./pages/Auth/Register.tsx";
+import ProfilePage from "./pages/Profile/ProfilePage.tsx";
+import UsersPage from "./pages/Users/UsersPage.tsx";
 
 function App() {
     return (
@@ -32,6 +34,8 @@ function App() {
                                     <Route path="/playlists/:id" element={<PlaylistDetailsPage />} />
                                     <Route path="/login" element={<Login />} />
                                     <Route path="/register" element={<Register />} />
+                                    <Route path="/user/:id" element={<ProfilePage />} />
+                                    <Route path="/community" element={<UsersPage />} />
                                 </Routes>
                             </main>
                         </Router>
