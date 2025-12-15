@@ -1,0 +1,238 @@
+.add-to-playlist-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.add-to-playlist-modal__content {
+    background: var(--card-bg, #1a1a1a);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.add-to-playlist-modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.add-to-playlist-modal__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+    margin: 0;
+}
+
+.add-to-playlist-modal__close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-secondary, #999);
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.add-to-playlist-modal__close:hover {
+    color: var(--text-primary, #fff);
+}
+
+.add-to-playlist-modal__movie {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary, #2a2a2a);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.add-to-playlist-modal__poster {
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.add-to-playlist-modal__movie-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+    margin: 0 0 0.25rem 0;
+}
+
+.add-to-playlist-modal__movie-info p {
+    font-size: 0.875rem;
+    color: var(--text-secondary, #999);
+    margin: 0;
+}
+
+.add-to-playlist-modal__loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    color: var(--text-secondary, #999);
+}
+
+.spinner-small {
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(102, 126, 234, 0.1);
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.add-to-playlist-modal__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.add-to-playlist-modal__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--bg-secondary, #2a2a2a);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    width: 100%;
+}
+
+.add-to-playlist-modal__item:hover:not(:disabled) {
+    border-color: #667eea;
+    background: var(--bg-tertiary, #333);
+}
+
+.add-to-playlist-modal__item--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.add-to-playlist-modal__item-name {
+    font-weight: 500;
+    color: var(--text-primary, #fff);
+    flex: 1;
+}
+
+.add-to-playlist-modal__item-count {
+    font-size: 0.875rem;
+    color: var(--text-secondary, #999);
+    margin-right: 0.5rem;
+}
+
+.add-to-playlist-modal__item-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border-radius: 4px;
+}
+
+.add-to-playlist-modal__create-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-to-playlist-modal__create-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.01);
+}
+
+.add-to-playlist-modal__create-form {
+    padding: 1rem;
+    background: var(--bg-secondary, #2a2a2a);
+    border-radius: 8px;
+}
+
+.add-to-playlist-modal__input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid var(--border-color, #333);
+    border-radius: 8px;
+    background: var(--input-bg, #1a1a1a);
+    color: var(--text-primary, #fff);
+    margin-bottom: 0.75rem;
+}
+
+.add-to-playlist-modal__input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.add-to-playlist-modal__error {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.add-to-playlist-modal__create-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.add-to-playlist-modal__btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-to-playlist-modal__btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.add-to-playlist-modal__btn--cancel {
+    background: var(--bg-tertiary, #333);
+    color: var(--text-primary, #fff);
+}
+
+.add-to-playlist-modal__btn--cancel:hover:not(:disabled) {
+    background: var(--bg-quaternary, #444);
+}
+
+.add-to-playlist-modal__btn--submit {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.add-to-playlist-modal__btn--submit:hover:not(:disabled) {
+    opacity: 0.9;
+}

@@ -1,0 +1,244 @@
+.playlist-details {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.playlist-details__header {
+    margin-bottom: 2rem;
+}
+
+.playlist-details__back {
+    display: inline-block;
+    color: var(--text-secondary, #999);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: color 0.2s ease;
+}
+
+.playlist-details__back:hover {
+    color: var(--text-primary, #fff);
+}
+
+.playlist-details__title-section {
+    margin-bottom: 1rem;
+}
+
+.playlist-details__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary, #fff);
+    margin: 0 0 0.5rem 0;
+}
+
+.playlist-details__count {
+    font-size: 1.125rem;
+    color: var(--text-secondary, #999);
+    margin: 0;
+}
+
+.playlist-details__edit-form {
+    max-width: 600px;
+}
+
+.playlist-details__actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.playlist-details__btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.playlist-details__btn--edit {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.playlist-details__btn--edit:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.playlist-details__btn--delete {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.playlist-details__btn--delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+.playlist-details__loading,
+.playlist-details__error,
+.playlist-details__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    text-align: center;
+}
+
+.playlist-details__loading {
+    color: var(--text-secondary, #999);
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(102, 126, 234, 0.1);
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.playlist-details__error {
+    color: #ef4444;
+}
+
+.playlist-details__back-btn,
+.playlist-details__search-btn {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.playlist-details__back-btn:hover,
+.playlist-details__search-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.playlist-details__empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.playlist-details__empty h2 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary, #fff);
+}
+
+.playlist-details__empty p {
+    color: var(--text-secondary, #999);
+    margin: 0 0 1.5rem 0;
+}
+
+.playlist-details__movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.movie-card {
+    background: var(--card-bg, #1a1a1a);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card__link {
+    display: block;
+    text-decoration: none;
+}
+
+.movie-card__poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.movie-card__poster-placeholder {
+    width: 100%;
+    aspect-ratio: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-size: 3rem;
+}
+
+.movie-card__content {
+    padding: 1rem;
+}
+
+.movie-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.movie-card__title:hover {
+    color: #667eea;
+}
+
+.movie-card__year {
+    font-size: 0.875rem;
+    color: var(--text-secondary, #999);
+    margin: 0 0 0.75rem 0;
+}
+
+.movie-card__remove {
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.movie-card__remove:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+@media (max-width: 768px) {
+    .playlist-details {
+        padding: 1rem;
+    }
+
+    .playlist-details__title {
+        font-size: 1.75rem;
+    }
+
+    .playlist-details__movies {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+}

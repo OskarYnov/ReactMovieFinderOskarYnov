@@ -3,9 +3,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes.js';
 import favoritesRoutes from './routes/favorites.routes.js';
+import playlistsRoutes from './routes/playlists.routes.js';
 
 // Charger les variables d'environnement
-dotenv.config({ path: '.env.backend' });
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/favorites', favoritesRoutes);
+app.use('/api/playlists', playlistsRoutes);
 
 // Route de base avec HATEOAS
 app.get('/api', (req, res) => {
@@ -44,6 +46,15 @@ app.get('/api', (req, res) => {
                 list: { href: '/api/favorites', method: 'GET', protected: true },
                 add: { href: '/api/favorites', method: 'POST', protected: true },
                 remove: { href: '/api/favorites/:movieId', method: 'DELETE', protected: true }
+            },
+            playlists: {
+                list: { href: '/api/playlists', method: 'GET', protected: true },
+                create: { href: '/api/playlists', method: 'POST', protected: true },
+                get: { href: '/api/playlists/:id', method: 'GET', protected: true },
+                update: { href: '/api/playlists/:id', method: 'PUT', protected: true },
+                delete: { href: '/api/playlists/:id', method: 'DELETE', protected: true },
+                addMovie: { href: '/api/playlists/:id/movies', method: 'POST', protected: true },
+                removeMovie: { href: '/api/playlists/:id/movies/:movieId', method: 'DELETE', protected: true }
             }
         }
     });
